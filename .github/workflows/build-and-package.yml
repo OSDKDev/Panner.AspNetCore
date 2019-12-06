@@ -1,4 +1,4 @@
-name: release.yml
+name: build-and-package.yml
 on: 
   release:
     types: [published]
@@ -15,7 +15,7 @@ jobs:
       - name: Building (Release)
         run: dotnet build -c Release -p:Version=${GITHUB_REF:11}
       - name: Pack (Release)
-        run: dotnet pack -c Release -o Stage -p:PackageVersion=${GITHUB_REF:11}
+        run: dotnet pack -c Release -o Stage -p:PackageVersion=${GITHUB_REF:11} --no-build
       - name: Upload as artifact
         uses: actions/upload-artifact@master
         with:

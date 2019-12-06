@@ -1,4 +1,4 @@
-name: ci-build.yml
+name: test-and-report.yml
 on:
   pull_request:
   push:
@@ -6,7 +6,7 @@ on:
       - 'samples/**'
       - 'src/**'
       - 'tests/**'
-      - '.github/workflows/ci-build.yml'
+      - '.github/workflows/test-and-report.yml'
       - '*.sln'
 
 jobs:
