@@ -1,0 +1,30 @@
+name: ci-build.yml
+on:
+  pull_request:
+  push:
+    paths:
+      - 'samples/**'
+      - 'src/**'
+      - 'tests/**'
+      - '.github/workflows/ci-build.yml'
+      - '*.sln'
+
+jobs:
+  build:
+    name: Test & Report
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check-out
+        uses: actions/checkout@master
+      - name: Install Dotnet
+        uses: actions/setup-dotnet@v1
+      - name: Install ReportGenerator
+        run: dotnet tool install dotnet-reportgenerator-globaltool --tool-path tools
+      - name: Test
+        run: dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=lcov
+      - name: Generate Coverage Report
+        run: tools/reportgenerator "-reports:tests/**/coverage.info" "-targetdir:./coverage/" -reporttypes:lcov
+      - name: Upload to Coveralls
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.github_token }}

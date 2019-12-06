@@ -1,0 +1,23 @@
+name: release.yml
+on: 
+  release:
+    types: [published]
+
+jobs:
+  test:
+    name: Pack for release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Dotnet
+        uses: actions/setup-dotnet@v1
+      - name: Check-out
+        uses: actions/checkout@master
+      - name: Building (Release)
+        run: dotnet build -c Release -p:Version=${GITHUB_REF:11}
+      - name: Pack (Release)
+        run: dotnet pack -c Release -o Stage -p:PackageVersion=${GITHUB_REF:11}
+      - name: Upload as artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: NuGet Package
+          path: Stage

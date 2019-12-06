@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;netcoreapp3.0</TargetFrameworks>
+    <AssemblyName>Panner.AspNetCore</AssemblyName>
+    <RootNamespace>Panner.AspNetCore</RootNamespace>
+    <Authors>OSDKDev</Authors>
+    <Company>OSDKDev</Company>
+    <Product>Panner.AspNetCore</Product>
+    <RepositoryUrl>https://github.com/OSDKDev/Panner.AspNetCore</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/OSDKDev/Panner.AspNetCore</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageIcon>logo-flat.png</PackageIcon>
+    <Copyright>Copyright (c) 2019 OSDKDev</Copyright>
+    <Description>Sorting and filtering made easy for your ASP.NET Core project! Go from a CSV input to a filtered/sorted IQueryable with no effort.</Description>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="CustomSortTest\**" />
+    <EmbeddedResource Remove="CustomSortTest\**" />
+    <None Remove="CustomSortTest\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+    <PackageReference Include="Panner" Version="1.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE" Pack="true" PackagePath="\" />
+    <None Include="..\imgs\logo-flat.png" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+</Project>
