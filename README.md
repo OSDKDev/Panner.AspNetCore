@@ -7,7 +7,7 @@ For more options, see [Panner's documentation](https://github.com/OSDKDev/Panner
 ```csharp
 // Your action method!
 [HttpGet]
-// Sample request: /entities?sorts=CreatedTimeStamp,Id&filters=Name=TestName
+// Sample request: /entities?sorts=CreatedTimeStamp,Id&filters=Name=Foo||Name=Bar,IsVisible=True
 public async Task<IActionResult> GetAllPosts(
 	[FromServices] DbContext myDbContext,
 
@@ -36,6 +36,12 @@ public void ConfigureServices(IServiceCollection services)
 
 	services.UsePanner(c =>
 	{
+		// Entity wide configuration (Option 1)
+		c.Entity<Post>()
+		    .AllPropertiesAreSortableByName();
+		    .AllPropertiesAreFilterableByName();
+
+		// A more granular approach (Option 2)
 		c.Entity<MyEntity>()
 			.Property(x => x.Id, o => o
 				.IsSortableAs(nameof(Views.Post.Id))
