@@ -1,5 +1,5 @@
 # Panner.AspNetCore [![Nuget](https://img.shields.io/nuget/v/Panner.AspNetCore?label=NuGet&color=success)](https://www.nuget.org/packages/Panner.AspNetCore) [![Coverage Status](https://coveralls.io/repos/github/OSDKDev/Panner.AspNetCore/badge.svg?branch=master)](https://coveralls.io/github/OSDKDev/Panner.AspNetCore?branch=master)
-Sorting and filtering made easy for your ASP.NET Core project! From CSV input to a filtered/sorted IQueryable with no effort using Panner, with some extra shortcuts.
+Sorting and filtering made easy for your ASP.NET Core project! From CSV input to a filtered/sorted IQueryable with no effort using Panner, with extra shortcuts, custom model binders, and other goodies.
 
 For more options, see [Panner's documentation](https://github.com/OSDKDev/Panner).
 
