@@ -26,7 +26,7 @@
             {
                 var genericArgument = type.GetGenericArguments()[0];
 
-                if (_binderTypes.TryGetValue(genericArgument.GetGenericTypeDefinition(), out var genericBinderType))
+                if (genericArgument.IsGenericType && _binderTypes.TryGetValue(genericArgument.GetGenericTypeDefinition(), out var genericBinderType))
                 {
                     Type[] typeArgs = { genericArgument.GetGenericArguments()[0] };
                     Type binderType = genericBinderType.MakeGenericType(typeArgs);
