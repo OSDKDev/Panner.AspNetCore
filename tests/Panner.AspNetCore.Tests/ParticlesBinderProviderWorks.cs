@@ -31,7 +31,7 @@
         public void WorksForCorrectTypes(Type input, Type output)
         {
             Assert.NotNull(this.ParticlesBinderProvider.GetBinder(this.GetContext(input)));
-            //Missing assert to verify that we're getting the correct model binder.
+#warning Missing assert to verify that we're getting the correct model binder.
         }
 
         [InlineData(typeof(List<IFilterParticle<TestObj>>))]

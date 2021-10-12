@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;netcoreapp3.0</TargetFrameworks>
+    <TargetFrameworks>netcoreapp3.1;net5.0</TargetFrameworks>
     <AssemblyName>Panner.AspNetCore</AssemblyName>
     <RootNamespace>Panner.AspNetCore</RootNamespace>
     <Authors>OSDKDev</Authors>
@@ -26,7 +26,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
-    <PackageReference Include="Panner" Version="1.*" />
+    <PackageReference Include="Panner" Version="2.*" />
   </ItemGroup>
 
   <ItemGroup>
