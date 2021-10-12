@@ -36,7 +36,7 @@
 
             if (valueProviderResult == ValueProviderResult.None)
             {
-                bindingContext.Result = ModelBindingResult.Success(Enumerable.Empty<ISortParticle<TEntity>>());
+                bindingContext.Result = ModelBindingResult.Success(Array.Empty<ISortParticle<TEntity>>());
                 return Task.CompletedTask;
             }
 
